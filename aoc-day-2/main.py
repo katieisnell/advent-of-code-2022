@@ -35,5 +35,61 @@ def part1():
     return total_score
 
 
+def part2():
+    # A = Rock = 1
+    # B = Paper = 2
+    # C = Scissors = 3
+    # X = need to lose
+    # Y = need to draw
+    # Z = need to win
+    
+    total_score = 0
+    
+    for game in all_items:
+        # A/B/C
+        opponent_move = game[0]
+        # X/Y/Z
+        my_move = game[2]
+        
+        # Opponent chooses rock
+        if opponent_move == 'A':
+            if my_move == 'X':
+                # Need to lose with scissors
+                total_score += 0 + 3
+            elif my_move == 'Y':
+                # Need to draw with rock
+                total_score += 3 + 1
+            elif my_move == 'Z':
+                # Need to win with paper
+                total_score += 6 + 2
+        # Opponent chooses paper
+        elif opponent_move == 'B':
+            if my_move == 'X':
+                # Need to lose with rock
+                total_score += 0 + 1
+            elif my_move == 'Y':
+                # Need to draw with paper
+                total_score += 3 + 2
+            elif my_move == 'Z':
+                # Need to win with scissors
+                total_score += 6 + 3
+        # Opponent chooses scissors
+        elif opponent_move == 'C':
+            if my_move == 'X':
+                # Need to lose with paper
+                total_score += 0 + 2
+            elif my_move == 'Y':
+                # Need to draw with scissors
+                total_score += 3 + 3
+            elif my_move == 'Z':
+                # Need to win with rock
+                total_score += 6 + 1
+    
+    return total_score
+
+
 # 9241
 print(part1())
+
+# 14610
+print(part2())
