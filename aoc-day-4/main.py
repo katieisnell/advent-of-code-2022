@@ -25,5 +25,30 @@ def part1():
     print(overlapping_pairs)
 
 
+# In how many assignment pairs do the ranges overlap?
+def part2():
+    duplicated_efforts_no = 0
+    
+    for item in all_items:
+        pairs = item.split(',')
+        
+        elf_one_nos = pairs[0].split('-')
+        elf_two_nos = pairs[1].split('-')
+        
+        elf_one_l = int(elf_one_nos[0])
+        elf_one_r = int(elf_one_nos[1])
+        elf_two_l = int(elf_two_nos[0])
+        elf_two_r = int(elf_two_nos[1])
+        
+        if (elf_one_l >= elf_two_r and elf_one_r <= elf_two_l) or \
+                (elf_one_l <= elf_two_r and elf_one_r >= elf_two_l):
+            duplicated_efforts_no += 1
+    
+    print(duplicated_efforts_no)
+
+
 # 536
 part1()
+
+# 845
+part2()
